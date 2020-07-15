@@ -1,0 +1,86 @@
+# jemdoc: menu{MENU}{project.html}
+= Projects
+
+== Lung Cancer Detection System
+=== PART ONE: User authentication
+- Design user login system. User must provide valid username and password to access this system.
+- Build unique classification history for every account.
+- For regular users, they could arrange an appointment with their nearby or favorite doctor.
+- For clinic users, they could put their available schedule online.
+
+=== PART TWO: [LCIP.pdf Core logic]
+- Preprocessing of CT image (dataset: 2017 Kaggle Data Science Bowl, LUNA16).
+-- Noise removal and gray scale converter.
+- Segmentation of image.
+-- Select Region of Interest (ROI) after background's removal to enable image segmentation.
+-- Use the Discrete Waveform Transform (DWT) or other techniques to separate low and high frequency portions of the image. 
+- Feature extraction from image.
+-- Calculate the Gray Level Co-occurrence Matrix (GLCM) for 0°,45°,90°,135° using the function greycomatrix(). 
+-- Calculate the feature values by using the function greycoprops() and store it in a file.
+- Classification by using SVM.
+-- Pass the feature values to the clf.predict() function.
+-- Check the output result. 
+
+== Memory Leaks Detection: A Survey | [proj_ml.pdf PDF]
+- Discuss the reason why memory leaks, and the difference between C/Cpp and Java on this problem.
+- Summarize and contrast two main memory leaks detection methods (C/Cpp), dynamic and static. 
+- Introduce 10 memory error detectors, which are the most recent and the most widely used.
+- Analyze the fact that static tools' quantity is less than dynamic tools', and list several remarkable works on static method.
+- Present a possible solution of improving static method, mixed execution testing (concolic testing). Mention several related papers on this topic.
+
+== Driver Recognition with Deep Learning | [proj1.pdf PDF]
+=== PART ONE: GPS data transformation
+- Produce five values from raw GPS data: speed norm, difference of speed norm, acceleration norm, 
+difference of acceleration norm, and angular speed.
+- Apply a sliding window. And each window produces seven basic features.
+
+=== PART TWO: Design a stacked RNN architecture
+- Study the differences between GRU and LSTM, and discuss the reason why GRU is better on this problem.
+- Use two GRU layers to extract higher-level features.
+-- GRU1 read input with unrolling steps along the time axis, and outputs a sequence of the same length.
+-- GRU2 is appended to GRU1. It unrolls the same steps, but outputs a vector instead of a sequence.
+- Bridge the supervised and unsupervised learning in one model, and design a dropout layer to reduce overfitting.
+~~~
+{}{img_left}{pj1.jpg}{alt text}{300px}{340px}{}
+~~~
+
+=== PART THREE: Feature reconstruction
+- Design two fully-connected bottleneck layers (FC1, FC2).
+-- FC1 is used to learn a compressed representation. It use f(z) = max(0, z) to ensure output non-negative.
+-- FC2 is the output layer of feature reconstruction, where f(z) = tanh(z) are used to approximate output.
+=== PART FOUR: Softmax regression
+- To produce a distribution over class labels. Design a fully-connected layer (FC3) for classification.
+
+== Uber Competitor Database | [proj2.pdf PDF]
+=== PART ONE: Design
+- List all the necessary informations to store, including customers, drivers, and trips/reservation.
+- Complete an [pj2.pdf E/R diagram] to construct.
+- Design several important functions.
+-- Four views to produce business reports.
+-- Several triggers and constraints to incorporate business logic into the design.
+-- Scripts for password, roles and encryptions to establish security levels.
+-- Two stored procedures and two functions to apply performance and efficiency improvements.
+=== PART TWO: Implementation
+- List all the tables, columns, primary keys, datatypes, nullabilities, and relationships.
+- Finish coding according to the E/R diagram.
+=== PART THREE: Testing
+- Populate database with test data.
+- Use views to produce five reports.
+- Test reliability through several scenarios.
+
+== Development of Website Update Detection System | [proj3.pdf PDF]
+Advisor: [https://ceo.nankai.edu.cn/szll/txgcx/hyg.htm Yigang Han] \n
+=== PART ONE: Preparation works
+- Build a simple web server with Python in Linux.
+-- Write sample page content.
+-- Update server page content.
+-- Design the jump operation when the error occurs.
+- Use cookies to implement password-free login.
+=== PART TWO: Implementation
+- Create a cookie pool with the Redis database.
+-- Design three main functional modules, generator, tester, and API.
+- Save HTML files to specified directory automatically.
+- Send HTML files to email by attachments with Python.
+=== PART THREE: Testing
+- Keep tester and API active only.
+- Keep generator active only. 

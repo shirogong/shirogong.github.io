@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>Projects</title>
+</head>
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+<div class="menu-category">Home</div>
+<div class="menu-item"><a href="index.html">About&nbsp;me</a></div>
+<div class="menu-item"><a href="project.html" class="current">Projects</a></div>
+<div class="menu-item"><a href="internship.html">Internships</a></div>
+</td>
+<td id="layout-content">
+<div id="toptitle">
+<h1>Projects</h1>
+</div>
+<h2>Lung Cancer Detection System</h2>
+<h3>PART ONE: User authentication</h3>
+<ul>
+<li><p>Design user login system. User must provide valid username and password to access this system.</p>
+</li>
+<li><p>Build unique classification history for every account.</p>
+</li>
+<li><p>For regular users, they could arrange an appointment with their nearby or favorite doctor.</p>
+</li>
+<li><p>For clinic users, they could put their available schedule online.</p>
+</li>
+</ul>
+<h3>PART TWO: <a href="LCIP.pdf">Core logic</a></h3>
+<ul>
+<li><p>Preprocessing of CT image (dataset: 2017 Kaggle Data Science Bowl, LUNA16).</p>
+<ul>
+<li><p>Noise removal and gray scale converter.</p>
+</li></ul>
+</li>
+<li><p>Segmentation of image.</p>
+<ul>
+<li><p>Select Region of Interest (ROI) after background's removal to enable image segmentation.</p>
+</li>
+<li><p>Use the Discrete Waveform Transform (DWT) or other techniques to separate low and high frequency portions of the image. </p>
+</li></ul>
+</li>
+<li><p>Feature extraction from image.</p>
+<ul>
+<li><p>Calculate the Gray Level Co-occurrence Matrix (GLCM) for 0°,45°,90°,135° using the function greycomatrix(). </p>
+</li>
+<li><p>Calculate the feature values by using the function greycoprops() and store it in a file.</p>
+</li></ul>
+</li>
+<li><p>Classification by using SVM.</p>
+<ul>
+<li><p>Pass the feature values to the clf.predict() function.</p>
+</li>
+<li><p>Check the output result. </p>
+</li>
+</ul>
+
+</li>
+</ul>
+<h2>Memory Leaks Detection: A Survey | <a href="proj_ml.pdf">PDF</a></h2>
+<ul>
+<li><p>Discuss the reason why memory leaks, and the difference between C/Cpp and Java on this problem.</p>
+</li>
+<li><p>Summarize and contrast two main memory leaks detection methods (C/Cpp), dynamic and static. </p>
+</li>
+<li><p>Introduce 10 memory error detectors, which are the most recent and the most widely used.</p>
+</li>
+<li><p>Analyze the fact that static tools&rsquo; quantity is less than dynamic tools&rsquo;, and list several remarkable works on static method.</p>
+</li>
+<li><p>Present a possible solution of improving static method, mixed execution testing (concolic testing). Mention several related papers on this topic.</p>
+</li>
+</ul>
+<h2>Driver Recognition with Deep Learning | <a href="proj1.pdf">PDF</a></h2>
+<h3>PART ONE: GPS data transformation</h3>
+<ul>
+<li><p>Produce five values from raw GPS data: speed norm, difference of speed norm, acceleration norm, 
+difference of acceleration norm, and angular speed.</p>
+</li>
+<li><p>Apply a sliding window. And each window produces seven basic features.</p>
+</li>
+</ul>
+<h3>PART TWO: Design a stacked RNN architecture</h3>
+<ul>
+<li><p>Study the differences between GRU and LSTM, and discuss the reason why GRU is better on this problem.</p>
+</li>
+<li><p>Use two GRU layers to extract higher-level features.</p>
+<ul>
+<li><p>GRU1 read input with unrolling steps along the time axis, and outputs a sequence of the same length.</p>
+</li>
+<li><p>GRU2 is appended to GRU1. It unrolls the same steps, but outputs a vector instead of a sequence.</p>
+</li></ul>
+</li>
+<li><p>Bridge the supervised and unsupervised learning in one model, and design a dropout layer to reduce overfitting.</p>
+</li>
+</ul>
+<table class="imgtable"><tr><td>
+<img src="pj1.jpg" alt="alt text" width="300px" height="340px" />&nbsp;</td>
+<td align="left"></td></tr></table>
+<h3>PART THREE: Feature reconstruction</h3>
+<ul>
+<li><p>Design two fully-connected bottleneck layers (FC1, FC2).</p>
+<ul>
+<li><p>FC1 is used to learn a compressed representation. It use f(z) = max(0, z) to ensure output non-negative.</p>
+</li>
+<li><p>FC2 is the output layer of feature reconstruction, where f(z) = tanh(z) are used to approximate output.</p>
+</li>
+</ul>
+
+</li>
+</ul>
+<h3>PART FOUR: Softmax regression</h3>
+<ul>
+<li><p>To produce a distribution over class labels. Design a fully-connected layer (FC3) for classification.</p>
+</li>
+</ul>
+<h2>Uber Competitor Database | <a href="proj2.pdf">PDF</a></h2>
+<h3>PART ONE: Design</h3>
+<ul>
+<li><p>List all the necessary informations to store, including customers, drivers, and trips/reservation.</p>
+</li>
+<li><p>Complete an <a href="pj2.pdf">E/R diagram</a> to construct.</p>
+</li>
+<li><p>Design several important functions.</p>
+<ul>
+<li><p>Four views to produce business reports.</p>
+</li>
+<li><p>Several triggers and constraints to incorporate business logic into the design.</p>
+</li>
+<li><p>Scripts for password, roles and encryptions to establish security levels.</p>
+</li>
+<li><p>Two stored procedures and two functions to apply performance and efficiency improvements.</p>
+</li>
+</ul>
+
+</li>
+</ul>
+<h3>PART TWO: Implementation</h3>
+<ul>
+<li><p>List all the tables, columns, primary keys, datatypes, nullabilities, and relationships.</p>
+</li>
+<li><p>Finish coding according to the E/R diagram.</p>
+</li>
+</ul>
+<h3>PART THREE: Testing</h3>
+<ul>
+<li><p>Populate database with test data.</p>
+</li>
+<li><p>Use views to produce five reports.</p>
+</li>
+<li><p>Test reliability through several scenarios.</p>
+</li>
+</ul>
+<h2>Development of Website Update Detection System | <a href="proj3.pdf">PDF</a></h2>
+<p>Advisor: <a href="https://ceo.nankai.edu.cn/szll/txgcx/hyg.htm">Yigang Han</a> <br /></p>
+<h3>PART ONE: Preparation works</h3>
+<ul>
+<li><p>Build a simple web server with Python in Linux.</p>
+<ul>
+<li><p>Write sample page content.</p>
+</li>
+<li><p>Update server page content.</p>
+</li>
+<li><p>Design the jump operation when the error occurs.</p>
+</li></ul>
+</li>
+<li><p>Use cookies to implement password-free login.</p>
+</li>
+</ul>
+<h3>PART TWO: Implementation</h3>
+<ul>
+<li><p>Create a cookie pool with the Redis database.</p>
+<ul>
+<li><p>Design three main functional modules, generator, tester, and API.</p>
+</li></ul>
+</li>
+<li><p>Save HTML files to specified directory automatically.</p>
+</li>
+<li><p>Send HTML files to email by attachments with Python.</p>
+</li>
+</ul>
+<h3>PART THREE: Testing</h3>
+<ul>
+<li><p>Keep tester and API active only.</p>
+</li>
+<li><p>Keep generator active only. </p>
+</li>
+</ul>
+<div id="footer">
+<div id="footer-text">
+Page generated 2020-07-15 07:20:22 EDT, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+</div>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
